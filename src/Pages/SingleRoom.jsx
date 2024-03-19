@@ -4,7 +4,10 @@ import video from "../assets/videos/roomTour.mp4";
 import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
 import StarIcon from "@mui/icons-material/Star";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
-// import Map from "./Map";
+import Map from "./Map";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import PersonIcon from "@mui/icons-material/Person";
+import CommentIcon from "@mui/icons-material/Comment";
 
 const SingleRoom = () => {
   const { id } = useParams();
@@ -26,6 +29,15 @@ const SingleRoom = () => {
       .then((data) => {
         // console.log(data);
         setRooms(data);
+      });
+  }, []);
+
+  const [blogs, setBlogs] = useState(null);
+  useEffect(() => {
+    fetch("http://localhost:5000/blogs")
+      .then((res) => res.json())
+      .then((data) => {
+        setBlogs(data);
       });
   }, []);
   return (
@@ -84,7 +96,7 @@ const SingleRoom = () => {
         </div>
         <div>
           <h2 className="text-4xl font-serif mb-4">Take a Tour</h2>
-          <video className="max-w-full max-h-full" controls>
+          <video className="max-w-full max-h-full pr-7" controls>
             <source src={video} type="video/mp4" />
           </video>
         </div>
@@ -184,7 +196,86 @@ const SingleRoom = () => {
           />
           <button className="btn bg-[#f0c4c1] join-item">Search</button>
         </div>
-        {/* <Map></Map> */}
+        <Map></Map>
+        <div className="my-10">
+          <h2 className="text-2xl font-bold font-serif">Recent Blog</h2>
+          {blogs?.map(
+            (blog, index) =>
+              index < 3 && (
+                <div key={blog._id} className="mt-4 bg-base-200 rounded-md">
+                  <div className="hero">
+                    <div className="hero-content flex-col lg:flex-row">
+                      <img
+                        src={blog.image}
+                        className="w-28 h-24 rounded-sm shadow-2xl"
+                      />
+                      <div>
+                        <a
+                          href="#"
+                          className="font-bold hover:text-[#f38d86] font-serif"
+                        >
+                          {blog.title}
+                        </a>
+                        <div className="text-gray-600">
+                          <CalendarMonthIcon style={{ fontSize: 16 }} />
+                          <span className="mt-2 text-[13px] mx-1 mr-2">
+                            {blog.date}
+                          </span>
+                          <PersonIcon style={{ fontSize: 16 }} />
+                          <span className="mt-2 text-[13px] mx-1 mr-2">
+                            Admin
+                          </span>
+                          <CommentIcon style={{ fontSize: 16 }} />
+                          <span className="mt-2 text-[13px] mx-1 mr-2">
+                            {blog.comment}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+          )}
+        </div>
+        <div className="my-10">
+          <h2 className="text-2xl font-bold font-serif">Tag Cloud</h2>
+          <div className="my-5">
+            <button className="border text-xs border-gray-400 hover:border-black rounded-md px-3 py-1 uppercase mr-1">
+              Dish
+            </button>
+            <button className="border text-xs border-gray-400 hover:border-black rounded-md px-3 py-1 uppercase m-1">
+              Menu
+            </button>
+            <button className="border text-xs border-gray-400 hover:border-black rounded-md px-3 py-1 uppercase m-1">
+              Food
+            </button>
+            <button className="border text-xs border-gray-400 hover:border-black rounded-md px-3 py-1 uppercase m-1">
+              Sweet
+            </button>
+            <button className="border text-xs border-gray-400 hover:border-black rounded-md px-3 py-1 uppercase m-1">
+              Tasty
+            </button>{" "}
+            <br />
+            <button className="border text-xs border-gray-400 hover:border-black rounded-md px-3 py-1 uppercase mr-1">
+              Delicious
+            </button>
+            <button className="border text-xs border-gray-400 hover:border-black rounded-md px-3 py-1 uppercase m-1">
+              Desserts
+            </button>
+            <button className="border text-xs border-gray-400 hover:border-black rounded-md px-3 py-1 uppercase m-1">
+              Drinks
+            </button>
+          </div>
+        </div>
+        <div className="my-10">
+          <h2 className="text-2xl font-bold font-serif">Paragraph</h2>
+          <p className="text-gray-600 my-4">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
+            itaque, autem necessitatibus voluptate quod mollitia delectus aut,
+            sunt placeat nam vero culpa sapiente consectetur similique,
+            inventore eos fugit cupiditate numquam!
+          </p>
+        </div>
       </div>
     </div>
   );

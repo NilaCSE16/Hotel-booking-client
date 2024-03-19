@@ -32,6 +32,31 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setLoading(false);
       setUser(currentUser);
+      const userEmail = currentUser?.email || user?.email;
+      const loggedUser = { email: userEmail };
+      if (currentUser) {
+        fetch("http://localhost:5000/jwt", {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loggedUser),
+        }).then(() => {
+          // console.log(data);
+        });
+      } else {
+        fetch("http://localhost:5000/logout", {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(loggedUser),
+        }).then(() => {
+          // console.log("data: ", data);
+        });
+      }
     });
     return () => {
       return unsubscribe;

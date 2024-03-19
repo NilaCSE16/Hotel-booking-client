@@ -1,7 +1,37 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.jpg";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user, LogOut } = useContext(AuthContext);
+  const [useName, setUsername] = useState(user ? user : null);
+  useEffect(() => {
+    fetch(`http://localhost:5000/users?email=${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log("Username: ", data[0].name);
+        setUsername(data[0]?.name);
+      });
+  }, [user?.email]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/bookings", {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then(() => {
+        // console.log(data);
+      });
+  }, []);
+
+  const handleLogOut = () => {
+    // setUsername(null);
+    LogOut();
+  };
+
+  // const hanldeLogin = () => {};
+
   return (
     <div className="navbar bg-[#F7F3E8] pl-6 pr-6">
       <div className="navbar-start">
@@ -44,9 +74,11 @@ const Navbar = () => {
                 </li>
               </ul>
             </li> */}
-            <li>
-              <a>My Bookings</a>
-            </li>
+            {user && (
+              <li>
+                <a>My Bookings</a>
+              </li>
+            )}
           </ul>
         </div>
         {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
@@ -73,13 +105,44 @@ const Navbar = () => {
               </ul>
             </details>
           </li> */}
-          <li>
-            <a>My Bookings</a>
-          </li>
+          {user && (
+            <li>
+              <Link to="myBookings">My Bookings</Link>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        <Link className="btn bg-[#f5dad8] hover:bg-[#f8bab5]">Login</Link>
+        {useName ? (
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn btn-ghost ">
+              {/* <div className="w-10 rounded-full"> */}
+              <h3>{useName}</h3>
+              {/* </div> */}
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <button onClick={handleLogOut}>Logout</button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <Link to="/login" className="btn bg-[#f5dad8] hover:bg-[#f8bab5]">
+            Login
+          </Link>
+        )}
       </div>
     </div>
   );

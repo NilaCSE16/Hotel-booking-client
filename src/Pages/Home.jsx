@@ -227,11 +227,13 @@ const Home = () => {
               index < 6 && (
                 <div key={room._id} className="card w-80 bg-base-100 shadow-xl">
                   <figure className="">
-                    <img
-                      src={room.image1}
-                      alt="Shoes"
-                      className="rounded-t-xl"
-                    />
+                    <Link to={`/rooms/${room._id}`}>
+                      <img
+                        src={room.image1}
+                        alt="Shoes"
+                        className="rounded-t-xl hover:scale-110"
+                      />
+                    </Link>
                   </figure>
                   <div className="items-center text-center mt-4">
                     <h2 className="text-center font-bold text-3xl">
@@ -244,11 +246,10 @@ const Home = () => {
                       per night
                     </p>
                     <hr className="w-full my-6" />
-                    <div className="w-full bg-[#f5a8a3] bottom-0 p-4 rounded-b-xl cursor-pointer">
-                      <Link to={`/rooms/${room._id}`}>
+                    <div className="w-full bg-[#f3928b] hover:bg-[#f5ada8] bottom-0 p-4 rounded-b-xl cursor-pointer">
+                      <Link to={`/booking/${room._id}`}>
                         <button className="font-bold">
-                          View Room Details{" "}
-                          <ArrowRightAltIcon></ArrowRightAltIcon>
+                          Book Now <ArrowRightAltIcon></ArrowRightAltIcon>
                         </button>
                       </Link>
                     </div>

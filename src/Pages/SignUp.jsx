@@ -5,16 +5,30 @@ import { Link } from "react-router-dom";
 const SignUp = () => {
   const { SignUp } = useContext(AuthContext);
 
-  const handleLogin = (event) => {
+  const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    // const currentUser = { email, password };
+    const currentUser = { name, email, password };
     // console.log(currentUser);
     SignUp(email, password)
-      .then((data) => {
-        console.log(data.user);
+      .then(() => {
+        // console.log(data.user);
+        fetch("http://localhost:5000/addUsers", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              alert("User Added");
+            }
+          });
         form.reset();
       })
       .catch((err) => {
@@ -33,7 +47,7 @@ const SignUp = () => {
           </p>
         </div>
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <form onSubmit={handleLogin} className="card-body">
+          <form onSubmit={handleSignUp} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>

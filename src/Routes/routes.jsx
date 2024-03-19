@@ -6,6 +6,11 @@ import SignUp from "../Pages/SignUp";
 import { ParallaxProvider } from "react-scroll-parallax";
 import AddRoom from "../Pages/AddRoom";
 import SingleRoom from "../Pages/SingleRoom";
+import AddBlogs from "../Pages/AddBlogs";
+import Booking from "../Pages/Booking";
+import PrivateRoute from "./PrivateRoute";
+import MyBookings from "../Pages/MyBookings";
+import UpdateBookings from "../Pages/UpdateBookings";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +40,34 @@ export const router = createBrowserRouter([
       {
         path: "/rooms/:id",
         element: <SingleRoom></SingleRoom>,
+      },
+      {
+        path: "/addBlogs",
+        element: <AddBlogs></AddBlogs>,
+      },
+      {
+        path: "/booking/:id",
+        element: (
+          <PrivateRoute>
+            <Booking></Booking>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myBookings",
+        element: (
+          <PrivateRoute>
+            <MyBookings></MyBookings>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updateBooking",
+        element: (
+          <PrivateRoute>
+            <UpdateBookings></UpdateBookings>
+          </PrivateRoute>
+        ),
       },
     ],
   },

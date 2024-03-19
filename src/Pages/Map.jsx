@@ -1,26 +1,35 @@
-// import GoogleMapReact from "google-map-react";
+import GoogleMapReact from "google-map-react";
 
-// const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-// const Map = () => {
-//   const defaultProps = {
-//     center: {
-//       lat: 10.99835602,
-//       lng: 77.01502627,
-//     },
-//     zoom: 11,
-//   };
-//   return (
-//     <div style={{ height: "100vh", width: "100%" }}>
-//       <GoogleMapReact
-//         bootstrapURLKeys={{ key: "" }}
-//         defaultCenter={defaultProps.center}
-//         defaultZoom={defaultProps.zoom}
-//       >
-//         <AnyReactComponent lat={59.955413} lng={30.337844} text="My Marker" />
-//       </GoogleMapReact>
-//     </div>
-//   );
-// };
+const Map = () => {
+  const defaultProps = {
+    center: {
+      //https://www.youtube.com/watch?v=Pf7g32CwX_s
+      //search latlong.net and then search for a place name
+      //for cox's bazar
+      lat: 39.059479,
+      lng: -80.873016,
+    },
+    zoom: 11,
+  };
 
-// export default Map;
+  //googlemapurl: https://www.google.com/maps/api=1/js?v=3.exp&libraries=geometry,drawing,places
+  return (
+    <div className="w-full h-80 mt-6">
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: import.meta.env.REACT_APP_GOOGLE_KEY }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+      >
+        <AnyReactComponent
+          lat={39.059479}
+          lng={-80.873016}
+          text="Family Hotel"
+        />
+      </GoogleMapReact>
+    </div>
+  );
+};
+
+export default Map;
