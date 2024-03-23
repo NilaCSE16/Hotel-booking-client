@@ -33,37 +33,38 @@ const Navbar = () => {
   // const hanldeLogin = () => {};
 
   return (
-    <div className="navbar bg-[#F7F3E8] pl-6 pr-6">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <div>
+      <div className="navbar bg-[#F7F3E8] pl-6 pr-6">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+              {/* <img className="h-5 w-5" stroke="currentColor" src={logo} alt="" /> */}
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow font-bold bg-base-100 rounded-box w-52"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-            {/* <img className="h-5 w-5" stroke="currentColor" src={logo} alt="" /> */}
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow font-bold bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <a>Rooms</a>
-            </li>
-            {/* <li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="rooms">Rooms</Link>
+              </li>
+              {/* <li>
               <a>Parent</a>
               <ul className="p-2">
                 <li>
@@ -74,25 +75,25 @@ const Navbar = () => {
                 </li>
               </ul>
             </li> */}
-            {user && (
-              <li>
-                <a>My Bookings</a>
-              </li>
-            )}
-          </ul>
+              {user && (
+                <li>
+                  <a>My Bookings</a>
+                </li>
+              )}
+            </ul>
+          </div>
+          {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
+          <img src={logo} alt="" className="w-16 h-16" />
         </div>
-        {/* <a className="btn btn-ghost text-xl">daisyUI</a> */}
-        <img src={logo} alt="" className="w-16 h-16" />
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 font-bold">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <a>Rooms</a>
-          </li>
-          {/* <li>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 font-bold">
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="rooms">Rooms</Link>
+            </li>
+            {/* <li>
             <details>
               <summary>Parent</summary>
               <ul className="p-2">
@@ -105,45 +106,47 @@ const Navbar = () => {
               </ul>
             </details>
           </li> */}
-          {user && (
-            <li>
-              <Link to="myBookings">My Bookings</Link>
-            </li>
-          )}
-        </ul>
-      </div>
-      <div className="navbar-end">
-        {useName ? (
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost ">
-              {/* <div className="w-10 rounded-full"> */}
-              <h3>{useName}</h3>
-              {/* </div> */}
+            {user && (
+              <li>
+                <Link to="myBookings">My Bookings</Link>
+              </li>
+            )}
+          </ul>
+        </div>
+        <div className="navbar-end">
+          {useName ? (
+            <div className="dropdown dropdown-end">
+              <div tabIndex={0} role="button" className="btn btn-ghost ">
+                {/* <div className="w-10 rounded-full"> */}
+                <h3>{useName}</h3>
+                {/* </div> */}
+              </div>
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <button onClick={handleLogOut}>Logout</button>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <button onClick={handleLogOut}>Logout</button>
-              </li>
-            </ul>
-          </div>
-        ) : (
-          <Link to="/login" className="btn bg-[#f5dad8] hover:bg-[#f8bab5]">
-            Login
-          </Link>
-        )}
+          ) : (
+            <Link to="/login" className="btn bg-[#f5dad8] hover:bg-[#f8bab5]">
+              Login
+            </Link>
+          )}
+        </div>
       </div>
+      <hr className="bg-blue-400 w-full h-1" />
     </div>
   );
 };

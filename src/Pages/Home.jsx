@@ -37,7 +37,7 @@ const Home = () => {
 
   return (
     <div className="mb-10">
-      <hr className="bg-blue-400 w-full h-1" />
+      {/* <hr className="bg-blue-400 w-full h-1" /> */}
       <div className="absolute">
         <img className="h-screen w-screen" src={banner} alt="" />
       </div>
@@ -246,13 +246,13 @@ const Home = () => {
                       per night
                     </p>
                     <hr className="w-full my-6" />
-                    <div className="w-full bg-[#f3928b] hover:bg-[#f5ada8] bottom-0 p-4 rounded-b-xl cursor-pointer">
-                      <Link to={`/booking/${room._id}`}>
+                    <Link to={`/booking/${room._id}`}>
+                      <div className="w-full bg-[#f3928b] hover:bg-[#f5ada8] bottom-0 p-4 rounded-b-xl cursor-pointer">
                         <button className="font-bold">
                           Book Now <ArrowRightAltIcon></ArrowRightAltIcon>
                         </button>
-                      </Link>
-                    </div>
+                      </div>
+                    </Link>
                   </div>
                 </div>
               )

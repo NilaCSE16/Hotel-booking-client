@@ -100,6 +100,8 @@ const SingleRoom = () => {
             <source src={video} type="video/mp4" />
           </video>
         </div>
+
+        {/* Review Section */}
         <div className="my-10">
           <h2 className="text-4xl font-serif mb-4">Review & Ratings</h2>
           <div className="mb-2">
@@ -148,6 +150,8 @@ const SingleRoom = () => {
             <span className="ml-1 text-slate-500 mt-6"> 1 star ratings</span>
           </div>
         </div>
+
+        {/* Featured Rooms */}
         <div className="my-10">
           <h2 className="text-4xl font-serif mb-4">Available Room</h2>
           <div className="grid grid-cols-2 gap-8 py-8">
@@ -156,10 +160,16 @@ const SingleRoom = () => {
                 index < 2 && (
                   <div
                     key={room._id}
-                    className="card w-[350px] bg-base-100 shadow-xl"
+                    className="card w-80 bg-base-100 shadow-xl"
                   >
                     <figure className="">
-                      <img src={room.image1} alt="Rooms" />
+                      <Link to={`/rooms/${room._id}`}>
+                        <img
+                          src={room.image1}
+                          alt="Shoes"
+                          className="rounded-t-xl hover:scale-110"
+                        />
+                      </Link>
                     </figure>
                     <div className="items-center text-center mt-4">
                       <h2 className="text-center font-bold text-3xl">
@@ -172,14 +182,13 @@ const SingleRoom = () => {
                         per night
                       </p>
                       <hr className="w-full my-6" />
-                      <div className="w-full bg-[#f5a8a3] bottom-0 p-4 cursor-pointer">
-                        <Link to={`/rooms/${room._id}`}>
+                      <Link to={`/booking/${room._id}`}>
+                        <div className="w-full bg-[#f3928b] hover:bg-[#f5ada8] bottom-0 p-4 rounded-b-xl cursor-pointer">
                           <button className="font-bold">
-                            View Room Details{" "}
-                            <ArrowRightAltIcon></ArrowRightAltIcon>
+                            Book Now <ArrowRightAltIcon></ArrowRightAltIcon>
                           </button>
-                        </Link>
-                      </div>
+                        </div>
+                      </Link>
                     </div>
                   </div>
                 )
@@ -187,6 +196,8 @@ const SingleRoom = () => {
           </div>
         </div>
       </div>
+
+      {/* right div */}
       <div>
         <div className="join">
           <input

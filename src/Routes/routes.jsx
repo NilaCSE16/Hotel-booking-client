@@ -11,6 +11,7 @@ import Booking from "../Pages/Booking";
 import PrivateRoute from "./PrivateRoute";
 import MyBookings from "../Pages/MyBookings";
 import UpdateBookings from "../Pages/UpdateBookings";
+import Rooms from "../Pages/Rooms";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ export const router = createBrowserRouter([
       {
         path: "/addBlogs",
         element: <AddBlogs></AddBlogs>,
+      },
+      {
+        path: "/rooms",
+        element: <Rooms></Rooms>,
       },
       {
         path: "/booking/:id",
