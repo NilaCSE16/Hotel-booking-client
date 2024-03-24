@@ -14,7 +14,7 @@ const SingleRoom = () => {
   // console.log("room info: ", id);
   const [roomInfo, setRoomInfo] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:5000/rooms/${id}`)
+    fetch(`https://hotel-booking-client-tau.vercel.app//rooms/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -24,7 +24,7 @@ const SingleRoom = () => {
   const [rooms, setRooms] = useState(null);
   // const [roomInfo, setRoomInfo] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:5000/rooms")
+    fetch("https://hotel-booking-client-tau.vercel.app//rooms")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -34,7 +34,7 @@ const SingleRoom = () => {
 
   const [blogs, setBlogs] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://hotel-booking-client-tau.vercel.app//blogs")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);

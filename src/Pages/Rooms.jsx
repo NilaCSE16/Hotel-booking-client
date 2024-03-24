@@ -9,7 +9,7 @@ import StarOutlineIcon from "@mui/icons-material/StarOutline";
 const Rooms = () => {
   const [count, setCount] = useState(0);
   useEffect(() => {
-    fetch("http://localhost:5000/roomsCount")
+    fetch("https://hotel-booking-client-tau.vercel.app//roomsCount")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data.count);
@@ -47,7 +47,7 @@ const Rooms = () => {
   // const [roomInfo, setRoomInfo] = useState(null);
   useEffect(() => {
     fetch(
-      `http://localhost:5000/rooms?page=${currentPage}&size=${itemsPerPage}`
+      `https://hotel-booking-client-tau.vercel.app//rooms?page=${currentPage}&size=${itemsPerPage}`
     )
       .then((res) => res.json())
       .then((data) => {

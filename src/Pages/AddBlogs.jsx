@@ -11,7 +11,7 @@ const AddBlogs = () => {
     const date = form.date.value;
     const blog = { title, image, comment, date };
     // console.log(blog);
-    fetch("http://localhost:5000/addBlogs", {
+    fetch("https://hotel-booking-client-tau.vercel.app//addBlogs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

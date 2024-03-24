@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
       const userEmail = currentUser?.email || user?.email;
       const loggedUser = { email: userEmail };
       if (currentUser) {
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://hotel-booking-client-tau.vercel.app//jwt", {
           method: "POST",
           credentials: "include",
           headers: {
@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
           // console.log(data);
         });
       } else {
-        fetch("http://localhost:5000/logout", {
+        fetch("https://hotel-booking-client-tau.vercel.app//logout", {
           method: "POST",
           credentials: "include",
           headers: {

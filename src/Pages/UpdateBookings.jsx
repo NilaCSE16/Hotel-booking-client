@@ -24,13 +24,16 @@ const UpdateBookings = () => {
     const date = form.date.value;
     // console.log(date);
     // const update = { date };
-    fetch(`http://localhost:5000/bookings/${myBooking._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ date: date }),
-    })
+    fetch(
+      `https://hotel-booking-client-tau.vercel.app//bookings/${myBooking._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ date: date }),
+      }
+    )
       //   .then((res) => res.json())
       .then((data) => {
         console.log(data);

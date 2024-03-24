@@ -28,10 +28,13 @@ const Booking = () => {
     const date = form.date.value;
     const room = { email, roomId, date };
     // console.log(room);
-    fetch(`http://localhost:5000/bookings?roomId=${roomId}`, {
-      method: "GET",
-      credentials: "include",
-    })
+    fetch(
+      `https://hotel-booking-client-tau.vercel.app//bookings?roomId=${roomId}`,
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data[0]?.roomId);
@@ -43,7 +46,7 @@ const Booking = () => {
             footer: '<a href="#">Try for another room</a>',
           });
         } else {
-          fetch("http://localhost:5000/addBookings", {
+          fetch("https://hotel-booking-client-tau.vercel.app//addBookings", {
             method: "POST",
             headers: {
               "content-type": "application/json",

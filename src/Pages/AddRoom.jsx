@@ -27,7 +27,7 @@ const AddRoom = () => {
       price,
     };
     // console.log(room);
-    fetch("http://localhost:5000/addRoom", {
+    fetch("https://hotel-booking-client-tau.vercel.app//addRoom", {
       method: "POST",
       headers: {
         "content-type": "application/json",
