@@ -29,7 +29,7 @@ const Booking = () => {
     const room = { email, roomId, date };
     // console.log(room);
     fetch(
-      `https://hotel-booking-server-nine-peach.vercel.app//bookings?roomId=${roomId}`,
+      `https://hotel-booking-server-nine-peach.vercel.app/bookings?roomId=${roomId}`,
       {
         method: "GET",
         credentials: "include",
@@ -47,7 +47,7 @@ const Booking = () => {
           });
         } else {
           fetch(
-            "https://hotel-booking-server-nine-peach.vercel.app//addBookings",
+            "https://hotel-booking-server-nine-peach.vercel.app/addBookings",
             {
               method: "POST",
               headers: {

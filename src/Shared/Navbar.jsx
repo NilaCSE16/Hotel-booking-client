@@ -8,7 +8,7 @@ const Navbar = () => {
   const [useName, setUsername] = useState(user ? user : null);
   useEffect(() => {
     fetch(
-      `https://hotel-booking-server-nine-peach.vercel.app//users?email=${user?.email}`
+      `https://hotel-booking-server-nine-peach.vercel.app/users?email=${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -18,7 +18,7 @@ const Navbar = () => {
   }, [user?.email]);
 
   useEffect(() => {
-    fetch("https://hotel-booking-server-nine-peach.vercel.app//bookings", {
+    fetch("https://hotel-booking-server-nine-peach.vercel.app/bookings", {
       method: "DELETE",
     })
       .then((res) => res.json())

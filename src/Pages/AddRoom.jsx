@@ -27,7 +27,7 @@ const AddRoom = () => {
       price,
     };
     // console.log(room);
-    fetch("https://hotel-booking-server-nine-peach.vercel.app//addRoom", {
+    fetch("https://hotel-booking-server-nine-peach.vercel.app/addRoom", {
       method: "POST",
       headers: {
         "content-type": "application/json",

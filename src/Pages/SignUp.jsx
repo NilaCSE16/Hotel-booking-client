@@ -16,7 +16,7 @@ const SignUp = () => {
     SignUp(email, password)
       .then(() => {
         // console.log(data.user);
-        fetch("https://hotel-booking-server-nine-peach.vercel.app//addUsers", {
+        fetch("https://hotel-booking-server-nine-peach.vercel.app/addUsers", {
           method: "POST",
           headers: {
             "content-type": "application/json",
