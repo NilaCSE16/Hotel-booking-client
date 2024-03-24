@@ -11,7 +11,7 @@ const MyBookings = () => {
   const [myBookings, setMyBookings] = useState(null);
   useEffect(() => {
     fetch(
-      `https://hotel-booking-client-tau.vercel.app//bookings?email=${user?.email}`,
+      `https://hotel-booking-server-nine-peach.vercel.app//bookings?email=${user?.email}`,
       {
         method: "GET",
         credentials: "include",
@@ -26,7 +26,7 @@ const MyBookings = () => {
   const [userName, setUsername] = useState(null);
   useEffect(() => {
     fetch(
-      `https://hotel-booking-client-tau.vercel.app//users?email=${user?.email}`,
+      `https://hotel-booking-server-nine-peach.vercel.app//users?email=${user?.email}`,
       {
         method: "GET",
       }
@@ -58,9 +58,12 @@ const MyBookings = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://hotel-booking-client-tau.vercel.app//bookings/${id}`, {
-            method: "DELETE",
-          })
+          fetch(
+            `https://hotel-booking-server-nine-peach.vercel.app//bookings/${id}`,
+            {
+              method: "DELETE",
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               // console.log(data);

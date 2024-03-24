@@ -17,7 +17,7 @@ const Home = () => {
   const [rooms, setRooms] = useState(null);
   // const [roomInfo, setRoomInfo] = useState(null);
   useEffect(() => {
-    fetch("https://hotel-booking-client-tau.vercel.app//rooms")
+    fetch("https://hotel-booking-server-nine-peach.vercel.app//rooms")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -27,7 +27,7 @@ const Home = () => {
 
   // const handleSingleRoom = (id) => {
   //   // console.log(id);
-  //   fetch(`https://hotel-booking-client-tau.vercel.app//rooms/${id}`)
+  //   fetch(`https://hotel-booking-server-nine-peach.vercel.app//rooms/${id}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setRoomInfo(data);
