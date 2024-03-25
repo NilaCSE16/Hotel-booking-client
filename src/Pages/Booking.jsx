@@ -29,7 +29,7 @@ const Booking = () => {
     const room = { email, roomId, date };
     // console.log(room);
     fetch(
-      `https://hotel-booking-api-eta.vercel.app/bookings?roomId=${roomId}`,
+      `https://hotel-booking-api-psi.vercel.app/bookings?roomId=${roomId}`,
       {
         method: "GET",
         credentials: "include",
@@ -46,7 +46,7 @@ const Booking = () => {
             footer: '<a href="#">Try for another room</a>',
           });
         } else {
-          fetch("https://hotel-booking-api-eta.vercel.app/addBookings", {
+          fetch("https://hotel-booking-api-psi.vercel.app/addBookings", {
             method: "POST",
             headers: {
               "content-type": "application/json",

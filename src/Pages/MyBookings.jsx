@@ -11,7 +11,7 @@ const MyBookings = () => {
   const [myBookings, setMyBookings] = useState(null);
   useEffect(() => {
     fetch(
-      `https://hotel-booking-api-eta.vercel.app/bookings?email=${user?.email}`,
+      `https://hotel-booking-api-psi.vercel.app/bookings?email=${user?.email}`,
       {
         method: "GET",
         credentials: "include",
@@ -26,7 +26,7 @@ const MyBookings = () => {
   const [userName, setUsername] = useState(null);
   useEffect(() => {
     fetch(
-      `https://hotel-booking-api-eta.vercel.app/users?email=${user?.email}`,
+      `https://hotel-booking-api-psi.vercel.app/users?email=${user?.email}`,
       {
         method: "GET",
       }
@@ -58,7 +58,7 @@ const MyBookings = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
-          fetch(`https://hotel-booking-api-eta.vercel.app/bookings/${id}`, {
+          fetch(`https://hotel-booking-api-psi.vercel.app/bookings/${id}`, {
             method: "DELETE",
           })
             .then((res) => res.json())
