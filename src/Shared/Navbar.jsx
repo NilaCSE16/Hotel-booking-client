@@ -7,15 +7,16 @@ const Navbar = () => {
   const { user, LogOut } = useContext(AuthContext);
   const [useName, setUsername] = useState(user ? user : null);
   useEffect(() => {
-    fetch(
-      `https://hotel-booking-server-tau.vercel.app/users?email=${user?.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log("Username: ", data[0].name);
-        setUsername(data[0]?.name);
-      });
-  }, [user?.email]);
+    user &&
+      fetch(
+        `https://hotel-booking-server-tau.vercel.app/users?email=${user?.email}`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log("Username: ", data[0].name);
+          setUsername(data[0]?.name);
+        });
+  }, [user]);
 
   useEffect(() => {
     fetch("https://hotel-booking-server-tau.vercel.app/bookings", {
@@ -84,19 +85,6 @@ const Navbar = () => {
             <li>
               <Link to="rooms">Rooms</Link>
             </li>
-            {/* <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
-                </li>
-                <li>
-                  <a>Submenu 2</a>
-                </li>
-              </ul>
-            </details>
-          </li> */}
             {user && (
               <li>
                 <Link to="myBookings">My Bookings</Link>
