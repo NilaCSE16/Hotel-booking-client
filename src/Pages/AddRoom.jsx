@@ -33,14 +33,12 @@ const AddRoom = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(room),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          alert("Successfully inserted a new room");
-        }
-        // console.log(data);
-      });
+    }).then((data) => {
+      if (data.insertedId) {
+        alert("Successfully inserted a new room");
+      }
+      // console.log(data);
+    });
   };
   return (
     <div className="w-full flex justify-center ">

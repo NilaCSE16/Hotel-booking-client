@@ -52,17 +52,15 @@ const Booking = () => {
               "content-type": "application/json",
             },
             body: JSON.stringify(room),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.insertedId) {
-                Swal.fire({
-                  icon: "success",
-                  title: "Booking Confirmed.......",
-                  showConfirmButton: false,
-                });
-              }
-            });
+          }).then((data) => {
+            if (data.insertedId) {
+              Swal.fire({
+                icon: "success",
+                title: "Booking Confirmed.......",
+                showConfirmButton: false,
+              });
+            }
+          });
         }
       });
   };

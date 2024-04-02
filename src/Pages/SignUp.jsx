@@ -22,13 +22,11 @@ const SignUp = () => {
             "content-type": "application/json",
           },
           body: JSON.stringify(currentUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.insertedId) {
-              alert("User Added");
-            }
-          });
+        }).then((data) => {
+          if (data.insertedId) {
+            alert("User Added");
+          }
+        });
         form.reset();
       })
       .catch((err) => {

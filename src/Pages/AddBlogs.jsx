@@ -17,13 +17,11 @@ const AddBlogs = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(blog),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          alert("Successfully Inserted");
-        }
-      });
+    }).then((data) => {
+      if (data.insertedId) {
+        alert("Successfully Inserted");
+      }
+    });
   };
   return (
     <div className="w-full flex justify-center my-16">
