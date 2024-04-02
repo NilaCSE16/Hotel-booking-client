@@ -25,7 +25,7 @@ const UpdateBookings = () => {
     // console.log(date);
     // const update = { date };
     fetch(
-      `https://hotel-booking-api-psi.vercel.app/bookings/${myBooking._id}`,
+      `https://hotel-booking-server-tau.vercel.app/bookings/${myBooking._id}`,
       {
         method: "PUT",
         headers: {

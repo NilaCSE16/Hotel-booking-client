@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
       const userEmail = currentUser?.email || user?.email;
       const loggedUser = { email: userEmail };
       if (currentUser) {
-        fetch("https://hotel-booking-api-psi.vercel.app/jwt", {
+        fetch("https://hotel-booking-server-tau.vercel.app/jwt", {
           method: "POST",
           credentials: "include",
           headers: {
@@ -46,7 +46,7 @@ const AuthProvider = ({ children }) => {
           // console.log(data);
         });
       } else {
-        fetch("https://hotel-booking-api-psi.vercel.app/logout", {
+        fetch("https://hotel-booking-server-tau.vercel.app/logout", {
           method: "POST",
           credentials: "include",
           headers: {

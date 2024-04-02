@@ -16,7 +16,7 @@ const SignUp = () => {
     SignUp(email, password)
       .then(() => {
         // console.log(data.user);
-        fetch("https://hotel-booking-api-psi.vercel.app/addUsers", {
+        fetch("https://hotel-booking-server-tau.vercel.app/addUsers", {
           method: "POST",
           headers: {
             "content-type": "application/json",
