@@ -39,8 +39,6 @@ const AuthProvider = ({ children }) => {
           method: "POST",
           credentials: "include",
           headers: {
-            "Access-Control-Allow-Headers": "Content-Type",
-            "Access-Control-Allow-Origin": "*",
             "content-type": "application/json",
           },
           body: JSON.stringify(loggedUser),
