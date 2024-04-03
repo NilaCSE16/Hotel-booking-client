@@ -10,33 +10,35 @@ const MyBookings = () => {
   // console.log("Email: ", user?.email);
   const [myBookings, setMyBookings] = useState(null);
   useEffect(() => {
-    fetch(
-      `https://hotel-booking-server-tau.vercel.app/bookings?email=${user?.email}`,
-      {
-        method: "GET",
-        credentials: "include",
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setMyBookings(data);
-        // console.log(data);
-      });
-  }, [user?.email]);
+    user &
+      fetch(
+        `https://hotel-booking-server-tau.vercel.app/bookings?email=${user?.email}`,
+        {
+          method: "GET",
+          credentials: "include",
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          setMyBookings(data);
+          // console.log(data);
+        });
+  }, [user]);
   const [userName, setUsername] = useState(null);
   useEffect(() => {
-    fetch(
-      `https://hotel-booking-server-tau.vercel.app/users?email=${user?.email}`,
-      {
-        method: "GET",
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log("Username: ", data[0].name);
-        setUsername(data[0]?.name);
-      });
-  }, [user?.email]);
+    user &
+      fetch(
+        `https://hotel-booking-server-tau.vercel.app/users?email=${user?.email}`,
+        {
+          method: "GET",
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          // console.log("Username: ", data[0].name);
+          setUsername(data[0]?.name);
+        });
+  }, [user]);
 
   const handleDelete = (id) => {
     const swalWithBootstrapButtons = Swal.mixin({
