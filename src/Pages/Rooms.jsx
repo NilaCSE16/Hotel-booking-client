@@ -12,7 +12,7 @@ const Rooms = () => {
     fetch("https://hotel-booking-server-tau.vercel.app/roomsCount")
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data.count);
+        // console.log(data);
         setCount(data.count);
       });
   }, []);

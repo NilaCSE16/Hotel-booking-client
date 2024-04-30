@@ -21,7 +21,7 @@ const MyBookings = () => {
         .then((res) => res.json())
         .then((data) => {
           setMyBookings(data);
-          // console.log(data);
+          console.log(data);
         });
   }, [user]);
   const [userName, setUsername] = useState(null);
